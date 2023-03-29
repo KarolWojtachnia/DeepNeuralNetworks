@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+free-spoken-digit-dataset-master/
+*.tfrecord
