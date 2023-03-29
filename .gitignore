@@ -129,4 +129,6 @@ dmypy.json
 .pyre/
 
 free-spoken-digit-dataset-master/
+Spectrograms/
 *.tfrecord
+*.h5

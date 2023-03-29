@@ -1,7 +1,8 @@
 import numpy as np
 import librosa.display, os
 import matplotlib.pyplot as plt
-# matplotlib inline
+import matplotlib
+matplotlib.use('Agg') # fixes "fail to allocate bitmap" issue
 
 def create_spectrogram(audio_file, image_file):
     fig = plt.figure()
@@ -25,8 +26,7 @@ def create_pngs_from_wavs(input_path, output_path):
     for i, file in enumerate(dir):
         input_file = os.path.join(input_path, file)
         output_file = os.path.join(output_path, file.replace('.wav', '.png'))
+        print(f"Creating spectrogram from {file} file...")
         create_spectrogram(input_file, output_file)
 
-
 create_pngs_from_wavs("free-spoken-digit-dataset-master/recordings", "Spectrograms")
-
