@@ -132,3 +132,4 @@ free-spoken-digit-dataset-master/
 Spectrograms/
 *.tfrecord
 *.h5
+*.npy

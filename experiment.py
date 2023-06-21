@@ -30,7 +30,8 @@ for _ in range(3):
     model.build()
     model.summary()
 
-# model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=1)
+with tf.device('/device:GPU:0'):
+    model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=1)
 
 # # Open the file
 # with open('network_result.txt','w') as fh:
