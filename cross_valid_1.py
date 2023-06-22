@@ -27,5 +27,6 @@ for fold_id, (train, test) in enumerate(rskf.split(X, y)):
         y_pred = np.argmax(y_pred, axis=1)
         scores[fold_id] = accuracy_score(y[test], y_pred)
         K.clear_session()
+    del model
 
 np.save("cross_valid_1.npy")
