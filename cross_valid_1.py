@@ -3,6 +3,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import RepeatedStratifiedKFold, train_test_split
 from models_utils import get_model
 import tensorflow as tf
+from keras import backend as K
 
 n_splits = 5
 n_repeats = 2
@@ -25,5 +26,6 @@ for fold_id, (train, test) in enumerate(rskf.split(X, y)):
         y_pred = model.predict(X[test])
         y_pred = np.argmax(y_pred, axis=1)
         scores[fold_id] = accuracy_score(y[test], y_pred)
+        K.clear_session()
 
 np.save("cross_valid_1.npy")
