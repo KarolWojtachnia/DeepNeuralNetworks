@@ -22,35 +22,35 @@ print(images[0].shape)
 model = get_model(1)
 
 with tf.device('/device:GPU:0'):
-    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.adam(), metrics=['accuracy'])
+    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
     history =  model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=5)
     np.save("history_1.npy", history.history)
 
 model = get_model(2)
 
 with tf.device('/device:GPU:0'):
-    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.adam(), metrics=['accuracy'])
+    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
     history =  model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=5)
     np.save("history_2.npy", history.history)
 
 model = get_model(3)
 
 with tf.device('/device:GPU:0'):
-    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.adam(), metrics=['accuracy'])
+    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
     history =  model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=5)
     np.save("history_3.npy", history.history)
 
 model = get_model(4)
 
 with tf.device('/device:GPU:0'):
-    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.adam(), metrics=['accuracy'])
+    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
     history =  model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=5)
     np.save("history_4.npy", history.history)
 
 model = get_model(5)
 
 with tf.device('/device:GPU:0'):
-    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.adam(), metrics=['accuracy'])
+    model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
     history =  model.fit(x_train, y_train_encoded, validation_data=(x_test, y_test_encoded), batch_size=50, epochs=5)
     np.save("history_5.npy", history.history)
    
