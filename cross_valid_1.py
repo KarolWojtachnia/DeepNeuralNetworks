@@ -31,4 +31,4 @@ for fold_id, (train, test) in enumerate(rskf.split(X, y)):
     del model
     gc.collect()
 
-np.save("cross_valid_1.npy")
+np.save("cross_valid_1.npy", scores)

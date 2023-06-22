@@ -3,6 +3,8 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import RepeatedStratifiedKFold, train_test_split
 from models_utils import get_model
 import tensorflow as tf
+from keras import backend as K
+import gc
 
 n_splits = 5
 n_repeats = 2
@@ -22,7 +24,11 @@ for fold_id, (train, test) in enumerate(rskf.split(X, y)):
     with tf.device('/device:GPU:0'):
         model.compile(loss=tf.keras.losses.categorical_crossentropy, optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
         model.fit(x_train, y_train_encoded, validation_data=(x_valid, y_valid_encoded), batch_size=50, epochs=5)
-        y_pred = model.predict_classes(X[test])
+        y_pred = model.predict(X[test])
+        y_pred = np.argmax(y_pred, axis=1)
         scores[fold_id] = accuracy_score(y[test], y_pred)
+        K.clear_session()
+    del model
+    gc.collect()
 
-np.save("cross_valid_5.npy")
+np.save("cross_valid_5.npy", scores)
