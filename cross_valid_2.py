@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.base import accuracy_score
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import RepeatedStratifiedKFold, train_test_split
 from models_utils import get_model
 import tensorflow as tf
