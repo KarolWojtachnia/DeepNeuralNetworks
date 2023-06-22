@@ -131,4 +131,5 @@ dmypy.json
 free-spoken-digit-dataset-master/
 *.tfrecord
 *.h5
-*.npy
+images.npy
+labels.npy
