@@ -4,6 +4,7 @@ from sklearn.model_selection import RepeatedStratifiedKFold, train_test_split
 from models_utils import get_model
 import tensorflow as tf
 from keras import backend as K
+import gc
 
 n_splits = 5
 n_repeats = 2
@@ -28,5 +29,6 @@ for fold_id, (train, test) in enumerate(rskf.split(X, y)):
         scores[fold_id] = accuracy_score(y[test], y_pred)
         K.clear_session()
     del model
+    gc.collect()
 
 np.save("cross_valid_1.npy")
